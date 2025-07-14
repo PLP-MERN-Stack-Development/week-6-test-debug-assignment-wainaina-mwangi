@@ -1,88 +1,124 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19936407&assignment_repo_type=AssignmentRepo)
-# Testing and Debugging MERN Applications
+# 🐞 MERN Bug Tracker – Debugging & Testing Assignment
 
-This assignment focuses on implementing comprehensive testing strategies for a MERN stack application, including unit testing, integration testing, and end-to-end testing, along with debugging techniques.
+This project demonstrates **debugging** and **testing best practices** in a full-stack MERN (MongoDB, Express, React, Node.js) application.
 
-## Assignment Overview
+---
 
-You will:
-1. Set up testing environments for both client and server
-2. Write unit tests for React components and server functions
-3. Implement integration tests for API endpoints
-4. Create end-to-end tests for critical user flows
-5. Apply debugging techniques for common MERN stack issues
+## 📁 Project Structure
+mern-bug-tracker/
+├── client/ # React frontend
+│ ├── src/Component/ # UI components (e.g., Button.jsx)
+│ └── tests/unit/ # Unit tests for components
+├── server/ # Express backend
+│ ├── src/ # Server logic (routes, controllers, models)
+│ └── tests/integration/ # Integration tests for APIs
 
-## Project Structure
 
-```
-mern-testing/
-├── client/                 # React front-end
-│   ├── src/                # React source code
-│   │   ├── components/     # React components
-│   │   ├── tests/          # Client-side tests
-│   │   │   ├── unit/       # Unit tests
-│   │   │   └── integration/ # Integration tests
-│   │   └── App.jsx         # Main application component
-│   └── cypress/            # End-to-end tests
-├── server/                 # Express.js back-end
-│   ├── src/                # Server source code
-│   │   ├── controllers/    # Route controllers
-│   │   ├── models/         # Mongoose models
-│   │   ├── routes/         # API routes
-│   │   └── middleware/     # Custom middleware
-│   └── tests/              # Server-side tests
-│       ├── unit/           # Unit tests
-│       └── integration/    # Integration tests
-├── jest.config.js          # Jest configuration
-└── package.json            # Project dependencies
-```
+---
 
-## Getting Started
+## 🛠️ Features Tested
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week6-Assignment.md` file
-4. Explore the starter code and existing tests
-5. Complete the tasks outlined in the assignment
+- ✅ Frontend unit testing (e.g. `<Button />` component)
+- ✅ Backend API integration testing (`/api/posts`)
+- ✅ In-memory MongoDB testing using `mongodb-memory-server`
+- ✅ JWT-protected routes testing
+- ✅ Validation & authorization checks
+- ✅ Error simulation and debugging (frontend/backend)
 
-## Files Included
+---
 
-- `Week6-Assignment.md`: Detailed assignment instructions
-- Starter code for a MERN application with basic test setup:
-  - Sample React components with test files
-  - Express routes with test files
-  - Jest and testing library configurations
-  - Example tests for reference
+## 🧪 Testing Tools Used
 
-## Requirements
+| Tool                   | Purpose                         |
+|------------------------|----------------------------------|
+| **Jest**               | Test runner for JS              |
+| **Supertest**          | API endpoint testing            |
+| **MongoMemoryServer**  | In-memory MongoDB for test DB   |
+| **React Testing Library** | Component testing in React |
 
-- Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
-- npm or yarn
-- Basic understanding of testing concepts
+---
 
-## Testing Tools
+## 🧑‍💻 How to Run Locally
 
-- Jest: JavaScript testing framework
-- React Testing Library: Testing utilities for React
-- Supertest: HTTP assertions for API testing
-- Cypress/Playwright: End-to-end testing framework
-- MongoDB Memory Server: In-memory MongoDB for testing
+### 1. Clone the Repository
 
-## Submission
+```bash
+git https://github.com/PLP-MERN-Stack-Development/week-6-test-debug-assignment-wainaina-mwangi.git
+cd mern-bug-tracker
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
 
-1. Complete all required tests (unit, integration, and end-to-end)
-2. Achieve at least 70% code coverage for unit tests
-3. Document your testing strategy in the README.md
-4. Include screenshots of your test coverage reports
-5. Demonstrate debugging techniques in your code
+2. Install Dependencies
+📦 Frontend (client/)
+bash
+Edit
+cd client
+npm install
+📦 Backend (server/)
+bash
+Edit
+cd ../server
+npm install
 
-## Resources
+🔌 Backend API Integration Testing
 
-- [Jest Documentation](https://jestjs.io/docs/getting-started)
-- [React Testing Library Documentation](https://testing-library.com/docs/react-testing-library/intro/)
-- [Supertest Documentation](https://github.com/visionmedia/supertest)
-- [Cypress Documentation](https://docs.cypress.io/)
-- [MongoDB Testing Best Practices](https://www.mongodb.com/blog/post/mongodb-testing-best-practices) 
+bash
+cd server
+npm test
+
+Example File: tests/integration/posts.test.js
+Tests:
+
+✅ Creating a post with and without auth
+
+✅ Validation errors (400)
+
+✅ Getting all posts & filtering by category
+
+✅ Paginating results
+
+✅ Viewing single post
+
+✅ Updating and deleting posts with permission checks
+
+Test DB runs entirely in-memory using MongoMemoryServer.
+
+🔐 Environment Variables
+In your server/.env:
+
+ENV
+Edit
+PORT=5000
+JWT_SECRET=yourSecretKey
+MONGO_URI=yourMongoDBConnectionString
+
+🧰 Debugging Strategy
+Backend:
+Used console.log() and try-catch blocks around async operations
+
+Verified JWT errors with custom middleware
+
+Frontend:
+Used React DevTools
+
+Isolated component testing (e.g. buttons, forms)
+
+Debugged Socket.IO issues (e.g., io is not defined) and added mocks for testing
+
+🚀 CI/CD (Optional Expansion)
+You can add a GitHub Actions workflow later to run:
+
+Unit tests
+
+Lint checks
+
+API integration tests
+
+📚 References
+Jest Docs
+
+Testing Library Docs
+
+Mongo Memory Server
+
+🙌 Author
+Erastus Wainaina – Assignment for Week 6: Testing & Debugging in MERN stack
